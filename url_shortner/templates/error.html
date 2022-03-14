@@ -1,0 +1,16 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'error.css' %}>
+    <title>URL Shortner</title>
+</head>
+<body>
+    <h1><a href={% url 'index' %}>URL Shortner</a></h1>
+    <div class="message"><strong>Error:</strong> No such shortened URL in database.</div>
+</body>
+</html>

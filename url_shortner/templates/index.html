@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'index.css' %}>
+    <title>URL Shortner</title>
+</head>
+<body>
+    <h1><a href={% url 'index' %}>URL Shortner</a></h1>
+    {% if messages %}
+        <div class="error-message">
+        {% for message in messages %}
+        <h4 {% if message.tags %} class="alert alert-{{message.tags}}" {% endif %} >
+            {{ message }}
+        </h4>
+        {% endfor %}
+        </div>
+    {% endif %}
+    <div class="container">
+        
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="original_url">Original URL: </label>
+            <input type="text" name="original_url" id="original_url">
+
+            <label for="new_name">New Name: </label>
+            <input type="text" name="new_name" id="new_name">
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+    
+</body>
+</html>
